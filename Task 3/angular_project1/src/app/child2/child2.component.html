@@ -1,0 +1,16 @@
+<div id="content">
+    <h1>Child 2</h1>
+    <p>Message from parent: {{ msgFromParent }}</p>
+
+    <label for="child-input-for-parent">Message for parent</label>
+    <input id="child-input-for-parent" type="text" #cifp placeholder="Type message for parent">
+    <button (click)="sendDataToParent(cifp.value)" >Msg Parent</button>
+
+    <br>
+    <label for="child-input-for-sibling">Message for sibling</label>
+    <input id="child-input-for-sibling" type="text" #cifs placeholder="Type message for sibling">
+    <button (click)="sendDataToParentForSibling(cifs.value)" >Msg Sibling</button>
+
+    <br>
+    <p>Message from Sibling: {{ msgFromSibling }}</p>
+</div>

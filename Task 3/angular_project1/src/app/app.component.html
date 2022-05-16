@@ -1,0 +1,22 @@
+<div>
+    <div id="content-parent">
+        <h1>Parent Component</h1>
+        <label for="parent-input">Message Child: </label><br>
+        <input id="parent-input" [(ngModel)]="msgForChild" placeholder="Type message for child">
+        <br>
+
+        <button (click)="sendMsgToChild1()">Msg Child 1</button>
+        <button (click)="sendMsgToChild2()">Msg Child 2</button>
+
+        <p>Message from child 1: {{ msgFromChild1 }} </p>
+        <p>Message from child 2: {{ msgFromChild2 }} </p>
+    </div>
+
+    <div id="content-childs">
+        <app-child1 [msgFromParent]="msgForChild1" (emitToParentC1)="getMsgFromChild1($event)"
+            [msgFromSibling]="msgFromC2ToC1" (emitToParentForSiblingC2)="getMsgFromChild1ForChild2($event)"></app-child1>
+        <app-child2 [msgFromParent]="msgForChild2" (emitToParentC2)="getMsgFromChild2($event)"
+            [msgFromSibling]="msgFromC1ToC2" (emitToParentForSiblingC1)="getMsgFromChild2ForChild1($event)"></app-child2>
+    </div>
+
+</div>
